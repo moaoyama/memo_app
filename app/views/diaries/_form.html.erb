@@ -1,0 +1,40 @@
+<%= form_with(model: diary) do |form| %>
+  <% if diary.errors.any? %>
+    <div style="color: red">
+      <p><%= pluralize(diary.errors.count, "error") %> が原因で保存できませんでした:</p>
+
+      <ul>
+        <% diary.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-wrapper">
+    
+    <div class="form-field">
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title, class: "input-common" %>
+    </div>
+
+    <div class="form-field">
+      <%= form.label :body, style: "display: block" %>
+      <%= form.text_area :body, class: "input-body" %>
+    </div>
+
+    <div class="form-field">
+      <%= form.label :category_id, "タグ", style: "display: block" %>
+      <%= form.collection_select :category_id, Category.all, :id, :name, { include_blank: "選択してください" }, { class: "input-common" } %>
+    </div>
+
+    <div>
+      <%= form.check_box :auto_delete %>
+      <%= form.label :auto_delete, "30分で自動削除する" %>
+    </div>
+
+    <div class="form-field">
+      <%= form.submit diary.persisted? ? "更新する" : "投稿する", class: "btn-large" %>
+    </div>
+  </div>
+<% end %>

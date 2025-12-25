@@ -1,0 +1,84 @@
+/* Base */
+body {
+  margin: 24px;
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #333;
+}
+
+.page-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Diary */
+.diary-body {
+  margin-bottom: 16px;
+}
+
+.diary-content {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+/* Forms */
+.diary-search-form,
+.diary-filter-form {
+  margin-bottom: 16px;
+}
+
+.search-input {
+  margin-right: 8px;
+}
+
+/* Category */
+.category-section {
+  margin: 40px 0;
+}
+
+.category-btn-group {
+  display: flex; /* Flexboxで子要素を横並びにする */
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0 10px;
+}
+
+.category-item-row {
+  display: flex;
+  align-items: center; 
+}
+
+.category-edit-form {
+  display: flex;
+  flex-grow: 1;
+  align-items: center; 
+  gap: 20px;
+}
+.category-name-field {
+  flex-grow: 1;
+  margin-right: 20px;
+  max-width: 70%;
+}
+.category-name-field .input-common {
+  width: 100%;
+}
+
+.category-buttons {
+  display: flex; 
+  margin-top: 0;
+  white-space: nowrap; 
+}
+
+/* Utilities */
+.item-actions-inline-flex {
+  margin-top: 0; 
+  text-align: center;
+}
+
+.reset {
+  margin-bottom: 16px;
+}

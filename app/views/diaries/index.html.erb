@@ -1,0 +1,45 @@
+<div class="page-container">
+
+  <p class="index-title">Log</p>
+
+  <div class="align-right-wrapper">
+    <%= form_with url: diaries_path, method: :get, local: true, html: { class: "diary-search-form" } do |form| %>
+      <%= form.text_field :q, value: params[:q], placeholder: "検索ワード", class: "search-input" %>
+      <%= form.submit "検索" %>
+    <% end %>
+  </div>
+
+  <div class="align-right-wrapper">
+    <%= form_with url: diaries_path, method: :get, local: true, html: { class: "diary-filter-form" } do |form| %>
+      <div class="category-select-wrapper">
+        <%= form.collection_select :category_id, @categories, :id, :name, include_blank: "すべてのカテゴリ", selected: params[:category_id], class: "category-select" %>
+      </div>
+      <%= form.submit "検索" %>
+    <% end %>
+  </div>
+
+  <div class="align-right-wrapper">
+    <% if params[:q].present? || params[:category_id].present? %>
+      <%= link_to "リセット", diaries_path, class: "btn-tag reset" %>
+    <% end %>
+  </div>
+
+  <div id="diaries">
+    <% @diaries.each do |diary| %>
+
+      <div class="diary-item">
+        <%= render partial: "diary", locals: { diary: diary } %>
+      </div>       
+
+    <% end %>
+  </div>
+
+  <div class="pagination">
+    <%= raw pagy_nav(@pagy) %>
+  </div>
+
+  <div class="item-actions">
+    <%= link_to "新規作成", new_diary_path, class: "btn-large" %>
+  </div>
+
+</div>

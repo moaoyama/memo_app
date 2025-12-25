@@ -1,0 +1,25 @@
+<div class="page-container">
+  <p class="page-title">タグ一覧</p>
+
+  <% @categories.each do |category| %>
+    <div class="diary-content category-item-row">
+      
+      <%= form_with(model: category, url: category_path(category), method: :patch, local: true, class: "category-edit-form") do |form| %>
+      
+        <div class="category-name-field">
+          <%= form.text_field :name, class: "input-common" %>
+        </div>
+
+        <div class="item-actions category-buttons">
+          <%= form.submit "更新", class: "btn-tag" %>
+          <%= link_to "削除", category_path(category), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" }, class: "btn-tag btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="item-actions">
+    <%= link_to "前のページに戻る", request.referer || diaries_path, class: "btn-large" %>
+  </div>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="page-container">
+  
+  <div>
+    <div class="diary-content">
+      <p class="diary-title"><%= @diary.title %></p>
+
+      <div class="diary-body">
+        <%= markdown(@diary.body) %>
+      </div>
+
+      <% if @diary.category.present? %>
+        <div class="tag-list">
+          <span class="tag-item item-right-small">Tag：<%= @diary.category.name %></span>
+        </div>
+      <% end %>
+
+      <p class="diary-date item-right-small">
+        <%= @diary.updated_at.strftime("%Y-%m-%d %H:%M") %>
+      </p>
+    </div>
+      
+
+    <div class="item-actions item-actions-flex">
+      <%= link_to "編集する", edit_diary_path(@diary), class: "btn" %>
+      <%= button_to "削除する", @diary, method: :delete, class: "btn btn-danger" %>
+    </div>
+
+    <div class="item-actions">
+      <%= link_to "一覧に戻る", diaries_path, class: "btn-large" %>
+    </div>
+  </div>
+</div>

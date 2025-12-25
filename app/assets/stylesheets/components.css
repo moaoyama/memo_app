@@ -1,0 +1,248 @@
+/* title */
+.index-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.sub-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.diary-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* button */
+.btn,
+.btn-large,
+.btn-tag {
+  display: inline-block;
+  text-align: center;
+  padding: 0;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  box-shadow: 0 5px 0 #eaeaea;
+  color: #333;
+  font-weight: bold;
+  border: 1px solid #f2f2f2;
+  text-decoration: none !important;
+  cursor: pointer;
+  font-size: 16px;
+}
+.btn:hover,
+.btn-large:hover,
+.btn-tag:hover {
+  opacity: 0.9;
+}
+.btn:active,
+.btn-large:active,
+.btn-tag:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.btn {
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+}
+.btn-large {
+  width: 144px;
+  height: 48px;
+  line-height: 48px;
+}
+.btn-tag {
+  width: 80px; 
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+}
+.btn-danger {
+  background-color: #FDE2E1;
+  border: 1px solid #FDE2E1;
+  box-shadow: 0 5px 0 #F9C8C5;
+  color: #C62828;
+}
+
+/* search and fiflter */
+.diary-search-form input[type="submit"],
+.diary-filter-form input[type="submit"] {
+  height: 34px; /* 入力フィールドの高さに合わせる */
+  line-height: 1; /* line-heightを調整 */
+  padding: 0 10px;
+  font-size: 16px;
+  background-color: #f2f2f2;
+  color: #333;
+  cursor: pointer;
+}
+
+/* read more */
+.read-more {
+  color: #333;
+  border-bottom: 2px dotted;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+/* form */
+.form-wrapper {
+  margin-top: 20px;
+}
+.form-field {
+  margin-bottom: 16px;
+  text-align: center;
+}
+.form-field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.form-wrapper .form-field:last-child {
+  text-align: center;
+}
+.input-common,
+.input-body {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.input-body {
+  height: 240px;
+}
+
+/* footer */
+.diary-footer-actions {
+  /* 囲む div に text-align: right を適用 */
+  text-align: right;
+  margin-top: 20px; /* 記事本文との間に空隙を設ける */
+}
+.item-actions-flex {
+  display: flex; /* 横並びにする */
+  justify-content: center; /* 中央揃えにする */
+  gap: 16px; /* ボタン間の空隙 */
+  margin-top: 24px; /* 上の要素との空隙 */
+  margin-bottom: 16px; /* 下の要素との空隙 */
+}
+.item-actions {
+  /* margin-top: 16px; */
+  text-align: center;
+  gap: 16px; /* ボタン間のスペース */
+  flex-wrap: wrap;
+}
+.diary-footer-actions .item-actions {
+  text-align: right; /* 右寄せに上書き */
+  margin-top: 0; /* 親要素で制御するためリセット */
+}
+.action-margin-more {
+  margin-bottom: 16px;
+}
+.action-margin {
+  margin-bottom: 24px;
+}
+
+/* diary content */
+.diary-field {
+  margin-bottom: 12px;
+}
+.diary-field-label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.diary-field-value {
+  white-space: pre-wrap; /* 改行を保持 */
+}
+
+/* date and tag */
+.item-right-small {
+  text-align: right;
+  font-size: 14px;
+  color: #666;
+  /* margin-top: 10px; */
+  margin-bottom: 0;
+}
+.diary-content .diary-date {
+  text-align: right;
+  /* margin-top: 10px; */
+}
+.tag-list {
+  text-align: right;
+  margin-bottom: 4px;
+}
+
+/* flash notice */
+.flash-notice {
+  position: fixed;       /* ← 画面に固定 */
+  top: 16px;             /* ← 上から16px */
+  left: 50%;             /* ← 横中央へ */
+  transform: translateX(-50%); /* ← 中央揃え */
+  width: 90%;            /* ← 横幅（調整可） */
+  max-width: 480px;      /* ← スマホでも見やすいように */
+  z-index: 1;         /* ← 一番上に重ねる */
+  background-color: #E8F7EC;
+  color: #2E7D32;
+  font-weight: bold;
+  padding: 16px;
+  border-radius: 8px;
+  transition: opacity 0.6s ease;
+}
+.flash-notice.hidden {
+  opacity: 0;
+}
+
+/* pagy */
+.pagy-nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.pagy-nav .page {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #f8f8f8;      /* ボタン背景 */
+  color: #333;              /* テキスト色 */
+  text-decoration: none;
+  cursor: pointer;
+}
+.pagy-nav .page.active {
+  background: #e0e0e0;      /* 現在ページの背景 */
+  border-color: #c5c5c5;
+  font-weight: bold;
+  cursor: default;
+}
+.pagy-nav .page.disabled {
+  background: #f0f0f0;
+  color: #aaa;
+  border-color: #eee;
+  cursor: default;
+}
+
+.align-right-wrapper {
+  text-align: right;
+}
+
+.category-select-wrapper {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.auto-delete-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}

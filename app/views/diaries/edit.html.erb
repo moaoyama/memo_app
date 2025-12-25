@@ -1,0 +1,40 @@
+<div class="page-container">
+  <p class="page-title">編集画面</p>
+
+  <%= render "form", diary: @diary %>
+
+  <div class="category-section">
+    <p class="sub-title toggle-category-box" style="cursor: pointer;">
+      ▼ タグの追加・編集
+    </p>
+
+    <div class="category-add-box" style="display: none;">
+      <%= form_with model: Category.new, url: categories_path, method: :post, local: true do |form| %>
+        <div>
+          <%= form.text_field :name, class: "input-common" %>
+        </div>
+
+        <div class="category-btn-group">
+          <div class="item-actions">
+            <%= form.submit "追加", class: "btn" %>
+          </div>
+
+          <div class="category-edit-link">
+            <%= link_to "編集", categories_path, class: "btn" %>
+          </div>
+        </div>
+        
+      <% end %>
+    </div>
+    
+  </div>
+
+  <div class="item-actions">
+    <%= button_to "削除する", @diary, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn-large btn-danger" %>
+  </div>
+
+  <div class="item-actions item-actions-flex">
+    <%= link_to "戻る", @diary, class: "btn-large" %>
+    <%= link_to "一覧に戻る", diaries_path, class: "btn-large" %>
+  </div>
+</div>

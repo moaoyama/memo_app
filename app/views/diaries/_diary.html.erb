@@ -1,0 +1,42 @@
+<div id="<%= dom_id diary %>" class="diary-content">
+  <div>
+    <p class="diary-title">
+      <% if diary.auto_delete %>
+        <%= image_tag "clock.svg", class: "auto-delete-icon" %>
+        <%= image_tag "check.svg", class: "auto-delete-icon" %>
+      <% end %>
+      <%= diary.title %>
+    </p>
+  </div>
+
+  <div>
+    <div>
+      <%= markdown(diary.summary) %>
+    </div>
+  </div>
+
+  <div class="diary-footer-actions">
+    
+    <% if diary.has_more? %>
+      <p class="item-actions action-margin-more">
+        <%= link_to "続きをよむ", diary_path(diary), class: "read-more" %>
+      </p>
+    <% end %>
+
+    <p class="item-actions action-margin">
+      <%= link_to "詳細をみる", diary_path(diary), class: "btn" %>
+    </p>
+
+    <% if diary.category.present? %>
+      <div class="tag-list item-right-small">
+        Tag : <%= diary.category.name %>
+      </div>
+    <% end %>
+
+    <p class="item-right-small">
+      <%= diary.updated_at.strftime("%Y-%m-%d %H:%M") %>
+    </p>
+    
+  </div>
+  
+</div>
