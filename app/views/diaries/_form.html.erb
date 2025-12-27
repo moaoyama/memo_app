@@ -20,7 +20,12 @@
 
     <div class="form-field">
       <%= form.label :body, style: "display: block" %>
-      <%= form.text_area :body, class: "input-body" %>
+
+      <p class="body-help-text">
+        &lt;!--more--&gt; を入れると、見せたいところまでを一覧に表示できます
+      </p>
+
+      <%= form.text_area :body, class: "input-body", id: "diary_body" %>
     </div>
 
     <div class="form-field">
@@ -28,13 +33,16 @@
       <%= form.collection_select :category_id, Category.all, :id, :name, { include_blank: "選択してください" }, { class: "input-common" } %>
     </div>
 
-    <div>
-      <%= form.check_box :auto_delete %>
-      <%= form.label :auto_delete, "30分で自動削除する" %>
+    <div class="form-field checkbox-row">
+      <%= form.check_box :auto_delete, class: "check-large" %>
+      <%= form.label :auto_delete, "30分でメモを自動的に削除する", class: "label-inline" %>
     </div>
 
-    <div class="form-field">
-      <%= form.submit diary.persisted? ? "更新する" : "投稿する", class: "btn-large" %>
+    <div class="sticky-submit-container">
+      <div class="sticky-submit-inner">
+        <%= form.submit diary.persisted? ? "更新する" : "投稿する", class: "btn-large" %>
+        <span id="char-count-display" class="char-count-sticky">0 文字</span>
+      </div>
     </div>
   </div>
 <% end %>

@@ -3,6 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 document.addEventListener("turbo:load", () => {
+  // --- 既存のフラッシュメッセージ処理 ---
   const flash = document.getElementById("flash-notice");
   if (flash) {
     setTimeout(() => {
@@ -12,7 +13,8 @@ document.addEventListener("turbo:load", () => {
       }, 600);
     }, 3000); // 3秒後にフェードアウト
   }
-
+  
+  // --- 既存のカテゴリトグル処理 ---
   const toggle = document.querySelector(".toggle-category-box");
   const box = document.querySelector(".category-add-box");
 
@@ -22,5 +24,17 @@ document.addEventListener("turbo:load", () => {
       box.style.display = isHidden ? "block" : "none";
       toggle.textContent = isHidden ? "▲ カテゴリの追加・編集" : "▼ カテゴリの追加・編集";
     });
+  }
+
+  const bodyArea = document.getElementById("diary_body");
+const display = document.getElementById("char-count-display");
+
+  if (bodyArea && display) {
+    const updateCount = () => {
+      display.textContent = `${bodyArea.value.length} 文字`;
+    };
+
+    bodyArea.addEventListener("input", updateCount);
+    updateCount(); // 読み込み時にも実行
   }
 });

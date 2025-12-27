@@ -73,6 +73,22 @@
   box-shadow: 0 5px 0 #F9C8C5;
   color: #C62828;
 }
+.sticky-submit-container {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.98); 
+  padding: 16px 0;
+  z-index: 1;
+  margin-top: 24px;
+}
+.sticky-submit-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px; /* 文字数とボタンの間の隙間 */
+}
 
 /* search and fiflter */
 .diary-search-form input[type="submit"],
@@ -94,13 +110,20 @@
   cursor: pointer;
 }
 
+/* count */
+.char-count-sticky {
+  font-size: 16px;
+  color: #666;
+  font-weight: bold;
+}
+
 /* form */
 .form-wrapper {
   margin-top: 20px;
 }
 .form-field {
   margin-bottom: 16px;
-  text-align: center;
+  text-align: left;
 }
 .form-field label {
   display: block;
@@ -109,6 +132,7 @@
 }
 .form-wrapper .form-field:last-child {
   text-align: center;
+  margin-bottom: 0;
 }
 .input-common,
 .input-body {
@@ -117,9 +141,36 @@
   font-size: 16px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 .input-body {
-  height: 240px;
+  min-height: 480px;
+  line-height: 1.6; 
+  padding: 16px;
+  resize: vertical;
+}
+
+.check-large {
+  transform: scale(1.5);    /* 1.5倍の大きさに */
+  transform-origin: left center;
+  margin: 0 8px 0 2px;       /* ラベルとの間に隙間を作る */
+  vertical-align: middle;   /* テキストと高さを合わせる */
+  cursor: pointer;
+}
+.label-inline {
+  display: inline-block !important;
+  vertical-align: middle;
+  cursor: pointer;
+  font-weight: normal !important; /* ラベルを少し細くして柔らかくする場合 */
+}
+.checkbox-row {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.body-help-text {
+  margin: 4px 0 8px;
+  font-size: 14px;
+  color: #777;
 }
 
 /* footer */

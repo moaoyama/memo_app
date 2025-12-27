@@ -17,7 +17,7 @@ class DiariesController < ApplicationController
       @diaries = Diary.where(category_id: params[:category_id])
     end
 
-    @pagy, @diaries = pagy(Diary.order(created_at: :desc), items: 10)
+    @pagy, @diaries = pagy(Diary.order(created_at: :desc), items: 5)
   end
 
   # GET /diaries/1 or /diaries/1.json

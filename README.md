@@ -1,24 +1,20 @@
-# README
+# Memo App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+シンプルなメモアプリです。
 
-Things you may want to cover:
+## 主な機能
 
-* Ruby version
+- メモの作成・編集・削除
+- Markdown記法に対応
+- カテゴリ（タグ）管理
+- チェックを入れると30分後に自動削除されるメモ機能
 
-* System dependencies
+## 工夫した点
 
-* Configuration
+## 使用技術
 
-* Database creation
+- Ruby on Rails
+- Ruby
+- HTML / CSS
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境

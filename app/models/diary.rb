@@ -1,7 +1,7 @@
 class Diary < ApplicationRecord
   # 区切りタグの定義
   MORE_TAG = "<!--more-->".freeze
-  AUTO_EXCERPT_LENGTH = 100
+  AUTO_EXCERPT_LENGTH = 400
   belongs_to :category, optional: true
 
   def self.cleanup_expired
@@ -27,11 +27,9 @@ class Diary < ApplicationRecord
 
   # 「続きを読む」が必要か判定
   def has_more?
-    if body.include?(MORE_TAG)
-      true  # ユーザーが手動で区切った場合
-    else
-      body.length > 100
-    end
+    return true if body.include?(MORE_TAG)
+    
+    body.length > AUTO_EXCERPT_LENGTH
   end
 
   before_create :set_expires_at_if_auto_delete
@@ -42,21 +40,21 @@ class Diary < ApplicationRecord
 
   private
 
-  def split_content
-    @split_content ||= begin
-      if body.include?(MORE_TAG)
-        summary, full = body.split(MORE_TAG, 2)
-          { summary: summary, full: full, has_more: true }
-      else
-        limit = 100
-        if body.length > limit
-          { summary: body[0...limit], full: body, has_more: true }
-        else
-          { summary: body, full: body, has_more: false }
-        end
-      end
-    end
-  end
+#  def split_content
+#    @split_content ||= begin
+#      if body.include?(MORE_TAG)
+#        summary, full = body.split(MORE_TAG, 2)
+#          { summary: summary, full: full, has_more: true }
+#      else
+#        limit = AUTO_EXCERPT_LENGTH
+#        if body.length > limit
+#          { summary: body[0...limit], full: body, has_more: true }
+#        else
+#          { summary: body, full: body, has_more: false }
+#        end
+#      end
+#    end
+#  end
 
   def set_expires_at_if_auto_delete
     if auto_delete? && expires_at.nil?
