@@ -1,93 +1,28 @@
 /* title */
+.index-title,
+.page-title,
+.diary-title,
+.sub-title {
+  font-weight: bold;
+}
+
 .index-title {
   font-size: 32px;
-  font-weight: bold;
   margin-bottom: 24px;
   text-align: center;
 }
 .page-title {
   font-size: 24px;
-  font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
 }
 .sub-title {
   font-size: 16px;
-  font-weight: bold;
   margin-bottom: 8px;
 }
 .diary-title {
   font-size: 24px;
-  font-weight: bold;
   margin-bottom: 8px;
-}
-
-/* button */
-.btn,
-.btn-large,
-.btn-tag {
-  display: inline-block;
-  text-align: center;
-  padding: 0;
-  border-radius: 8px;
-  background-color: #f2f2f2;
-  box-shadow: 0 5px 0 #eaeaea;
-  color: #333;
-  font-weight: bold;
-  border: 1px solid #f2f2f2;
-  text-decoration: none !important;
-  cursor: pointer;
-  font-size: 16px;
-}
-.btn:hover,
-.btn-large:hover,
-.btn-tag:hover {
-  opacity: 0.9;
-}
-.btn:active,
-.btn-large:active,
-.btn-tag:active {
-  box-shadow: none;
-  transform: translateY(5px);
-}
-
-.btn {
-  width: 120px;
-  height: 40px;
-  line-height: 40px;
-}
-.btn-large {
-  width: 144px;
-  height: 48px;
-  line-height: 48px;
-}
-.btn-tag {
-  width: 80px; 
-  height: 32px;
-  line-height: 32px;
-  font-size: 14px;
-}
-.btn-danger {
-  background-color: #FDE2E1;
-  border: 1px solid #FDE2E1;
-  box-shadow: 0 5px 0 #F9C8C5;
-  color: #C62828;
-}
-.sticky-submit-container {
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.98); 
-  padding: 16px 0;
-  z-index: 1;
-  margin-top: 24px;
-}
-.sticky-submit-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px; /* 文字数とボタンの間の隙間 */
 }
 
 /* search and fiflter */

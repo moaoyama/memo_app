@@ -1,6 +1,8 @@
 <div class="page-container">
-
-  <p class="index-title">Log</p>
+  <div class ="page-header">
+    <p class="index-title">Log</p>
+    <%= link_to "メモを書く", new_diary_path, class: "btn-large" %>
+  </div>
 
   <div class="align-right-wrapper">
     <%= form_with url: diaries_path, method: :get, local: true, html: { class: "diary-search-form" } do |form| %>
@@ -36,10 +38,6 @@
 
   <div class="pagination">
     <%= raw pagy_nav(@pagy) %>
-  </div>
-
-  <div class="item-actions">
-    <%= link_to "新規作成", new_diary_path, class: "btn-large" %>
   </div>
 
 </div>

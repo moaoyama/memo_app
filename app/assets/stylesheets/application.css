@@ -5,4 +5,5 @@
  *= require markdown
  *= require_tree .
  *= require_self
+ *= require buttons
  */
