@@ -9,15 +9,15 @@ class DiariesController < ApplicationController
 
     #検索
     if params[:q].present? 
-      @diaries = Diary.where("title LIKE ? OR body LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+      @diaries = @diaries.where("title LIKE ? OR body LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
     end
 
     #カテゴリ
     if params[:category_id].present?
-      @diaries = Diary.where(category_id: params[:category_id])
+      @diaries = @diaries.where(category_id: params[:category_id])
     end
 
-    @pagy, @diaries = pagy(Diary.order(created_at: :desc), items: 5)
+    @pagy, @diaries = pagy(@diaries, items: 5)
   end
 
   # GET /diaries/1 or /diaries/1.json

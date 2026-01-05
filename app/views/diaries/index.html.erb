@@ -26,15 +26,30 @@
     <% end %>
   </div>
 
-  <div id="diaries">
-    <% @diaries.each do |diary| %>
+  <% if @diaries.any? %>
+    <!-- 通常の一覧表示 -->
+    <div id="diaries">
+      <% @diaries.each do |diary| %>
 
-      <div class="diary-item">
-        <%= render partial: "diary", locals: { diary: diary } %>
-      </div>       
+        <div class="diary-item">
+          <%= render partial: "diary", locals: { diary: diary } %>
+        </div>       
 
+      <% end %>
+    </div>
+  <% else %>
+    <% if params[:q].present? %>
+      <div class="empty-state">
+        <p>該当するメモは見つかりませんでした</p>
+        <p>別のキーワードで検索してみてください</p>
+      </div>
+    <% else %>
+      <div class="empty-state">
+        <p>まだメモがありません</p>
+        <p>右上の「メモを書く」ボタンからメモを書くことができます</p>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 
   <div class="pagination">
     <%= raw pagy_nav(@pagy) %>

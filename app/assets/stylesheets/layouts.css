@@ -88,3 +88,13 @@ body {
 .reset {
   margin-bottom: 16px;
 }
+
+.empty-state {
+  text-align: center;
+  color: #777;
+  margin-top: 40px;
+}
+.empty-state p {
+  margin: 4px 0;
+  font-size: 14px;
+}
