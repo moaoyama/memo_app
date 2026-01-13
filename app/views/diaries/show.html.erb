@@ -22,7 +22,11 @@
 
     <div class="item-actions item-actions-flex">
       <%= link_to "編集する", edit_diary_path(@diary), class: "btn" %>
-      <%= button_to "削除する", @diary, method: :delete, class: "btn btn-danger" %>
+      <%= button_to "削除する",
+      @diary,
+      method: :delete,
+      data: { turbo_confirm: "このメモを削除しますか？" },
+      class: "btn btn-danger" %>
     </div>
 
     <div class="item-actions">

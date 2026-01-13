@@ -30,7 +30,7 @@
   </div>
 
   <div class="item-actions">
-    <%= button_to "削除する", @diary, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn-large btn-danger" %>
+    <%= button_to "削除する", @diary, method: :delete, data: { turbo_confirm: "このメモを削除しますか？" },class: "btn-large btn-danger" %>
   </div>
 
   <div class="item-actions item-actions-flex">
