@@ -5,24 +5,23 @@
         <%= image_tag "clock.svg", class: "auto-delete-icon" %>
         <%= image_tag "check.svg", class: "auto-delete-icon" %>
       <% end %>
-      <%= diary.title %>
+      <span><%= diary.title %></span>
     </p>
   </div>
 
   <div>
-    <div>
+    <div class="diary-summary">
       <%= markdown(diary.summary) %>
     </div>
   </div>
+    
+  <% if diary.has_more? %>
+    <%= link_to diary_path(diary), class: "read-more-row" do %>
+      <span class="read-more">続きをよむ</span>
+    <% end %>
+  <% end %>
 
   <div class="diary-footer-actions">
-    
-    <% if diary.has_more? %>
-      <p class="item-actions action-margin-more">
-        <%= link_to "続きをよむ", diary_path(diary), class: "read-more" %>
-      </p>
-    <% end %>
-
     <p class="item-actions action-margin">
       <%= link_to "メモを開く", diary_path(diary), class: "btn" %>
     </p>

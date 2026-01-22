@@ -2,7 +2,13 @@
   
   <div>
     <div class="diary-content">
-      <p class="diary-title"><%= @diary.title %></p>
+      <p class="diary-title">
+        <% if @diary.auto_delete %>
+          <%= image_tag "clock.svg", class: "auto-delete-icon" %>
+          <%= image_tag "check.svg", class: "auto-delete-icon" %>
+        <% end %>
+        <span><%= @diary.title %></span>
+      </p>
 
       <div class="diary-body">
         <%= markdown(@diary.body) %>

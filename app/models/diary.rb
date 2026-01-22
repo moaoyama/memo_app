@@ -15,7 +15,7 @@ class Diary < ApplicationRecord
       body.split(MORE_TAG).first
     else
       # なければ一定文字数で自動抜粋
-      body.truncate(AUTO_EXCERPT_LENGTH)
+      body[0...AUTO_EXCERPT_LENGTH]
     end
   end
 

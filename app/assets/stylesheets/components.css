@@ -5,7 +5,6 @@
 .sub-title {
   font-weight: bold;
 }
-
 .index-title {
   font-size: 32px;
   margin-bottom: 24px;
@@ -23,6 +22,17 @@
 .diary-title {
   font-size: 24px;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+.auto-delete-icon {
+  width: 24px;
+  height: 24px;
+  /* --- (2) 解決: アイコン同士の間隔を狭くする --- */
+  margin-right: -4px; /* 右側の余白を削る（または0にしてgapで調整） */
+}
+.auto-delete-icon:last-of-type {
+  margin-right: 4px; 
 }
 
 /* search and fiflter */
@@ -38,11 +48,35 @@
 }
 
 /* read more */
+.read-more-row {
+  display: block;
+  text-align: center !important;
+  text-decoration: none !important;
+  padding: 10px 0;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: inherit;
+}
 .read-more {
   color: #333;
-  border-bottom: 2px dotted;
   text-decoration: none !important;
-  cursor: pointer;
+  border-bottom: 2px dotted;
+}
+.read-more-row:hover {
+  background-color: rgba(0, 0, 0, 0.02); 
+}
+.read-more-row:visited {
+  text-decoration: none !important;
+  color: inherit;
+}
+.item-actions-center {
+  text-align: center;
+  width: 100%;
+}
+.read-more-wrapper {
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
 
 /* count */
@@ -137,6 +171,9 @@
 .action-margin {
   margin-bottom: 24px;
 }
+.diary-footer-actions .item-actions-center {
+  text-align: center; 
+}
 
 /* diary content */
 .diary-field {
@@ -148,6 +185,21 @@
 }
 .diary-field-value {
   white-space: pre-wrap; /* 改行を保持 */
+}
+.diary-summary {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  margin-bottom: 0 !important;
+}
+.diary-summary * {
+  margin-bottom: 0 !important;
+}
+.diary-summary p {
+  margin-top: 0;
+  margin-bottom: 0.5em; /* 行間としての余白のみ残す */
+}
+.diary-summary > *:last-child {
+  margin-bottom: 0;
 }
 
 /* date and tag */
